@@ -40,9 +40,23 @@
   }
 
   @keyframes meteor {
-    0% { transform: rotate(45deg) translateX(20px); }
-    70% { opacity: 1; }
-    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+    0% {
+      transform: rotate(230deg) translateX(0);
+      opacity: 0;
+      }
+      20% {
+      opacity: 1;
+      }
+    70% {
+      opacity: 1;
+    }
+    80% {
+      opacity: 0;
+    }
+
+    100% {
+      transform: rotate(230deg) translateX(-500px);opacity: 0;
+    }
   }
 }
 
@@ -53,10 +67,29 @@
 
     --card: 0 0% 100%;
 
-    --primary: 250 47% 60%;
+    --primary: 206 100% 42%;
     --primary-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
+    --gradient: linear-gradient(to right, #3e41e9, #512a75);
+
+
+
+    /* Light mode colors for the stars and meteors */
+    --star-bg: #07cf00; /* slate-400 */
+    --star-glow: rgba(6, 21, 49, 0.4);
+
+    --meteor-box: rgba(17, 45, 90, 0.4);
+    --meteor-gradient:
+          linear-gradient(
+          to right, 
+          #82BC00 0%,   /* Head: Lime */
+          #0078D4 50%,  /* Middle: Blue */
+          #FFFFFF 100% /* Tail */
+        );
+  
+
+
   }
 
   .dark {
@@ -69,6 +102,24 @@
     --primary-foreground: 210 40% 98%;
 
     --border: 222 20% 20%;
+
+    --gradient:linear-gradient(to right, #15ca21, #005FB8);
+
+
+    /* Dark mode colors for the stars and meteors */
+    --star-bg: #71a500;
+    --star-glow: rgba(65, 195, 255, 0.4);
+
+    --meteor-box: rgba(248, 191, 144, 0.637);
+    --meteor-gradient:
+          linear-gradient(
+          to right, 
+          #82BC00 0%,   /* Head: Lime */
+          #0078D4 50%,  /* Middle: Blue */
+          #FFFFFF 100% /* Tail */
+        );
+
+
   }
 
   * {
@@ -114,6 +165,16 @@
   border: 1px solid transparent;
 }
 
+
+
+@utility text-gradient {
+  background-image: var(--gradient); /* Reusing your brand gradient! */
+  background-clip: text;
+  -webkit-background-clip: text; /* Required for Safari support */
+  color: transparent;
+}
+
+
 @utility cosmic-button {
   @apply px-6 py-6 rounded-full bg-primary text-primary-foreground font-medium
   transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
@@ -121,14 +182,18 @@
 }
 
 @utility star {
-  @apply absolute rounded-full bg-white;
-  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+  @apply absolute rounded-full transition-colors;
+  background-color: var(--star-bg);
+  box-shadow: 0 0 10px 2px var(--star-glow);
 }
 
 @utility meteor {
-  @apply absolute bg-linear-to-r from-white via-white to-transparent rounded-full;
-  box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
+  @apply absolute rounded-full transition-all;
+  background: var(--meteor-gradient);
+  box-shadow: 0 0 10px 5px var(--meteor-box);
 }
+
+
 
 #root {
   max-width: 100%;
