@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"] # Change this to your branch name if it's not 'main'
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -22,12 +22,15 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
+          cache-dependency-path: portfolio/package-lock.json
 
       - name: Install dependencies
         run: npm install
+        working-directory: portfolio
 
       - name: Build
         run: npm run build
+        working-directory: portfolio
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -35,7 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist' # Vite puts the finished site in the 'dist' folder
+          path: './portfolio/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
