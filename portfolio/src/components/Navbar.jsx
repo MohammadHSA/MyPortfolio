@@ -7,7 +7,7 @@ const navItems=[
     {name:"About", href:"#about"},
     {name:"Skills", href:"#skills"},
     {name:"Projects", href:"#projects"},
-    {name:"contact", href:"#contact"},
+    {name:"Contact", href:"#contact"},
 ];
 
 export const Navbar = ()=>{
@@ -34,7 +34,7 @@ useEffect(()=>{
                 <a className="text-xl font-bold text-primary flex items=center" href="#hero">
                     <span className="relative z-10">
                         
-                        <span className="text-glow text-foreground"> Sufiani</span> Portfolio
+                        <span className="text-glow text-foreground"> Safar Alsufiani </span> Portfolio
                         
                         </span> 
                 </a>

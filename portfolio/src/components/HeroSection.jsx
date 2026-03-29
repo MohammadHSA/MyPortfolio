@@ -16,7 +16,7 @@ export const HeroSection = () => {
                     
                     <span className="text-gradient text-glow opacity-0 animate-fade-in-delay-1">
                         {" "}
-                        Mohammad Safar
+                        Mohammad Safar Alsufiani
 
                     
                     </span>
