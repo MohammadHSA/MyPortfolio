@@ -1,5 +1,16 @@
-# ... top of file ...
-jobs: 
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
@@ -11,24 +22,23 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          # Tell it where the lock file is
-          cache-dependency-path: portfolio/package-lock.json 
+          cache-dependency-path: portfolio/package-lock.json
 
       - name: Install dependencies
-        # Tell it to run npm install INSIDE the portfolio folder
         run: npm install
         working-directory: portfolio
 
       - name: Build
-        # Tell it to build INSIDE the portfolio folder
         run: npm run build
         working-directory: portfolio
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Tell it the finished site is in portfolio/dist
-          path: './portfolio/dist' 
+          path: './portfolio/dist'
 
       - name: Deploy to GitHub Pages
         id: deployment
