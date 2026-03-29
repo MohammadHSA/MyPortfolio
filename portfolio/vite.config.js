@@ -7,7 +7,7 @@ import path from 'path';
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   // MUST be capitalized exactly like your repo: MyPortfolio
-  base: '/portfolio/', 
+  base: '/MyPortfolio/portfolio/', 
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
