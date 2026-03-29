@@ -5,8 +5,9 @@ import path from 'path';
 
 
 export default defineConfig({
-  base: '/MyPortfolio/', // This must match your GitHub Repo name exactly
   plugins: [react(), tailwindcss()],
+  // MUST be capitalized exactly like your repo: MyPortfolio
+  base: '/MyPortfolio/portfolio/', 
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src'),
