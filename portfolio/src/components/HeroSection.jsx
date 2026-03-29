@@ -39,9 +39,10 @@ export const HeroSection = () => {
                     I specialize in building web applications using modern technologies such as React, Node.js, FastAPI and AWS for databases.
                     My experience from school projects also taught me some cryptography skills as well.
                 </p>
+
                 <br />
                 <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-                    <a href="#projects" className="cosmic-button  ">
+                    <a href="#projects" className="cosmic-button">
                          View My Work
                     </a>
 
