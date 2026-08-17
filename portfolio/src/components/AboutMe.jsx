@@ -26,11 +26,11 @@ export const About = () => {
                         *REMEMBER TO FINISH THIS*
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-                        <a href="#contact" className="cosmic-button">
+                        <a href="#contact" className="cosmic-button text-secondary font-bold">
         
                             Get in touch
                         </a>
-                        <a href="/resume.pdf" className="cosmic-button-no-background" download="Mohammad Safar CV.pdf">
+                        <a href="/resume.pdf" className="cosmic-button-no-background text-primary font-bold" download="Mohammad Safar CV.pdf">
                             
                             Download CV
                         </a>
